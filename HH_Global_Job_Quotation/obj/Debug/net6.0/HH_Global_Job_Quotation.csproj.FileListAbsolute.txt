@@ -1,0 +1,7 @@
+C:\Users\Bidex\source\repos\HH_Global_Task\HH_Global_Job_Quotation\HH_Global_Job_Quotation\obj\Debug\net6.0\HH_Global_Job_Quotation.csproj.AssemblyReference.cache
+C:\Users\Bidex\source\repos\HH_Global_Task\HH_Global_Job_Quotation\HH_Global_Job_Quotation\obj\Debug\net6.0\HH_Global_Job_Quotation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bidex\source\repos\HH_Global_Task\HH_Global_Job_Quotation\HH_Global_Job_Quotation\obj\Debug\net6.0\HH_Global_Job_Quotation.AssemblyInfoInputs.cache
+C:\Users\Bidex\source\repos\HH_Global_Task\HH_Global_Job_Quotation\HH_Global_Job_Quotation\obj\Debug\net6.0\HH_Global_Job_Quotation.AssemblyInfo.cs
+C:\Users\Bidex\source\repos\HH_Global_Task\HH_Global_Job_Quotation\HH_Global_Job_Quotation\obj\Debug\net6.0\HH_Global_Job_Quotation.csproj.CoreCompileInputs.cache
+C:\Users\Bidex\source\repos\HH_Global_Task\HH_Global_Job_Quotation\HH_Global_Job_Quotation\obj\Debug\net6.0\HH_Global_Job_Quotation.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Bidex\source\repos\HH_Global_Task\HH_Global_Job_Quotation\HH_Global_Job_Quotation\obj\Debug\net6.0\HH_Global_Job_Quotation.MvcApplicationPartsAssemblyInfo.cache
