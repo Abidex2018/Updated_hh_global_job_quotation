@@ -7,6 +7,8 @@ namespace HH_Global_Job_Quotation.Models.DTO
         public string JobItemId { get; set; }
         public List<ResponseItem> Items { get; set; }
         public string Total { get; set; }
+        public bool IsSuccesful { get; set; }
+        public string Message { get; set; }
 
     }
 
