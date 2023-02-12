@@ -33,7 +33,7 @@ if (app.Environment.IsDevelopment())
 
 app.MapPost("/api/CreateInvoice", (IGetCostInvoice getCostInvoice, [FromBody] JobItemCreateRequest jobItem) =>
 {
-    var response = getCostInvoice.GetCostInvoiceJobItem(jobItem);
+    var response =  getCostInvoice.GetCostInvoiceJobItem(jobItem);
 
     if(response != null)
     {

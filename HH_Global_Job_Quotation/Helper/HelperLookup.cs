@@ -15,7 +15,7 @@ namespace HH_Global_Job_Quotation.Helper
             _additionalCost = additionalCost.Value;
            
         }
-        public  double GetCostWithTax(double price)
+        public decimal GetCostWithTax(decimal price)
         {
             if(price > 0)
             {
@@ -33,7 +33,7 @@ namespace HH_Global_Job_Quotation.Helper
            
         }
 
-        public  double GetCostWithMargin(double price)
+        public decimal GetCostWithMargin(decimal price)
         {
             if (price > 0)
             {
@@ -51,7 +51,7 @@ namespace HH_Global_Job_Quotation.Helper
 
         }
 
-        public  double GetCostWithExtraMargin(double price)
+        public decimal GetCostWithExtraMargin(decimal price)
         {
             if (price > 0)
             {
@@ -69,17 +69,38 @@ namespace HH_Global_Job_Quotation.Helper
 
         }
 
-        public double RoundUpToNearestEvenCent(double price)
+        public decimal RoundUpToNearestEvenCent(decimal price)
         {
-            var roundUpVlaue = Math.Round(price, 2,MidpointRounding.ToEven);
+            //var roundUpVlaue = (0.02m / 1.00m) * decimal.Round(price * (1.00m / 0.02m));
+            
+           
+            var roundUpVlaue = decimal.Round(price,2, MidpointRounding.ToEven);
+            var priceToString = roundUpVlaue.ToString();
+            var indexValue = priceToString.Length - 1;
+            string lastChar = priceToString.ToCharArray()[indexValue].ToString();
+            var actualValue = int.Parse(lastChar);
+            if(actualValue % 2 != 0)
+            {
+                priceToString = priceToString.Remove(priceToString.Length - 1) + "0";
+                roundUpVlaue = decimal.Parse(priceToString);
+            }
+            return roundUpVlaue;
+
+
+        }
+
+        public decimal RoundUpToNearestCent(decimal price)
+        {
+            var roundUpVlaue = Math.Round(price, 2);
             return roundUpVlaue;
 
         }
 
-        public double RoundUpToNearestCent(double price)
+        public string ConvertToCurrency(decimal price)
         {
             var roundUpVlaue = Math.Round(price, 2);
-            return roundUpVlaue;
+            var currencyValue = String.Format("{0:c}", roundUpVlaue);
+            return currencyValue;
 
         }
 

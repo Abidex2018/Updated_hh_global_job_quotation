@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("9c91b17c-12f4-481a-b3c6-0d86b6656bbe")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("HH_Global_Job_Quotation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

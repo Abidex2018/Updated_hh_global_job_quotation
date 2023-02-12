@@ -1,14 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "hWSJvCWKWVxjus832XhTvOG8tLPgcGreELn8ZU32SWWe7m8v3axza8tIdRs+3COzEArxYgTZzhJcJCvX5ysVTQ==",
+  "dgSpecHash": "88Pd4Z2UNaWbmRwT4dWOHf76tUe1sbf69DTAVBrvnhy3mVZNshxlWe2mAx282LVQieqNQem/Id+o7qQAYubX6Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Bidex\\source\\repos\\HH_Global_Task\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation.csproj",
+  "projectFilePath": "C:\\Users\\Bidex\\source\\repos\\HH_Global_Task\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation\\hh_global_job_quotation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bidex\\.nuget\\packages\\fluentvalidation\\11.0.0\\fluentvalidation.11.0.0.nupkg.sha512",
     "C:\\Users\\Bidex\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.0.0\\fluentvalidation.dependencyinjectionextensions.11.0.0.nupkg.sha512",
     "C:\\Users\\Bidex\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Bidex\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512",
     "C:\\Users\\Bidex\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Bidex\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512",
     "C:\\Users\\Bidex\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\Bidex\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\Bidex\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",

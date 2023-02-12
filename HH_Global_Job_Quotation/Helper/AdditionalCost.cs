@@ -3,8 +3,8 @@
     public  class AdditionalCost
     {
         
-        public  double Tax { get; set; }
-        public   double Margin { get; set; }
-        public  double ExtratraMargin { get; set; }
+        public decimal Tax { get; set; }
+        public decimal Margin { get; set; }
+        public decimal ExtratraMargin { get; set; }
     }
 }

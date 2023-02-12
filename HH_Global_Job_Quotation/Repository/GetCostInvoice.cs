@@ -7,23 +7,19 @@ namespace HH_Global_Job_Quotation.Repository
 {
     public class GetCostInvoice : IGetCostInvoice
     {
-        private  HelperLookup _getHelperLook;
-        private  double tax;
-        private double exempt = 0.00;
-        private  double margin;
-        private  double extraMargin;
-        private  double Total = 0.00;
-
-        private  double totalMargin = 0.00;
-        private  double totalCost_With_Margin = 0.00;
-        private  double totalCost_With_ExtraMargin = 0.00;
-        private double PriceCost;
-        private double newPriceCostWithTax;
+        private  HelperLookup _getHelperLookup;
+        private decimal tax;
+        private decimal margin;
+        private decimal extraMargin;
+        private decimal Total = 0.00m;
+        private decimal totalCost_With_Margin = 0.00m;
+        private decimal totalCost_With_ExtraMargin = 0.00m;
+        private decimal newPriceCostWithTax;
        
 
-        public GetCostInvoice(HelperLookup getHelperLook)
+        public GetCostInvoice(HelperLookup getHelperLookup)
         {
-            _getHelperLook = getHelperLook;
+            _getHelperLookup = getHelperLookup;
         }
         public JobItemResponse GetCostInvoiceJobItem(JobItemCreateRequest jobItemCreateRequest)
         {
@@ -37,121 +33,132 @@ namespace HH_Global_Job_Quotation.Repository
             responseItem.JobItemId = jobID.ToString();
             responseItem.Items = new List<ResponseItem>();
 
-
-
-            if (jobItemCreateRequest.IsExtraMargin)
+            try
             {
-                foreach (var item in jobItemCreateRequest.Items)
+                if (jobItemCreateRequest.IsExtraMargin)
                 {
-                    if (!item.IsExempt)
+                    foreach (var item in jobItemCreateRequest.Items)
                     {
-                        tax = _getHelperLook.GetCostWithTax(item.Price);
-                        item.Price = _getHelperLook.RoundUpToNearestCent(item.Price);
-
-                        totalCost_With_ExtraMargin += item.Price;
-                        totalCost_With_Margin = _getHelperLook.RoundUpToNearestCent(totalCost_With_ExtraMargin);
-                        tax = _getHelperLook.GetCostWithTax(item.Price);
-                        newPriceCostWithTax = item.Price + tax;
-                        newPriceCostWithTax = _getHelperLook.RoundUpToNearestCent(newPriceCostWithTax);
-                        Total += newPriceCostWithTax;
-
-                       
-                        item.ItemName = item.ItemName = $"{item.ItemName}: ${newPriceCostWithTax}";
-                        responseItem.Items.Add(new ResponseItem
+                        if (!item.IsExempt)
                         {
-                            Name = item.ItemName,
-                            Price = newPriceCostWithTax,
-                        });
+                            tax = _getHelperLookup.GetCostWithTax(item.Price);
+                            item.Price = _getHelperLookup.RoundUpToNearestCent(item.Price);
+
+                            totalCost_With_ExtraMargin += item.Price;
+                            totalCost_With_Margin = _getHelperLookup.RoundUpToNearestCent(totalCost_With_ExtraMargin);
+                            tax = _getHelperLookup.GetCostWithTax(item.Price);
+                            newPriceCostWithTax = item.Price + tax;
+                            newPriceCostWithTax = _getHelperLookup.RoundUpToNearestCent(newPriceCostWithTax);
+                            Total += newPriceCostWithTax;
+                            var costPriceInCurrency = _getHelperLookup.ConvertToCurrency(newPriceCostWithTax);
 
 
-                    }
-                    else if (item.IsExempt)
-                    {
+                            item.ItemName = item.ItemName = $"{item.ItemName}: {costPriceInCurrency}";
+                            responseItem.Items.Add(new ResponseItem
+                            {
+                                Name = item.ItemName,
+                                Price = _getHelperLookup.ConvertToCurrency(newPriceCostWithTax),
+                            });
 
-                        item.Price = _getHelperLook.RoundUpToNearestCent(item.Price);
-                        totalCost_With_Margin += item.Price;
-                        totalCost_With_Margin = _getHelperLook.RoundUpToNearestCent(totalCost_With_Margin);
-                       
-                        newPriceCostWithTax = item.Price;
-                        newPriceCostWithTax = _getHelperLook.RoundUpToNearestCent(newPriceCostWithTax);
-                        Total += newPriceCostWithTax;
 
-                       
-                        item.ItemName = item.ItemName = $"{item.ItemName}: ${newPriceCostWithTax}";
-                        responseItem.Items.Add(new ResponseItem
+                        }
+                        else if (item.IsExempt)
                         {
-                            Name = item.ItemName, 
-                            Price = newPriceCostWithTax,
-                        });
 
+                            item.Price = _getHelperLookup.RoundUpToNearestCent(item.Price);
+                            totalCost_With_Margin += item.Price;
+                            totalCost_With_Margin = _getHelperLookup.RoundUpToNearestCent(totalCost_With_Margin);
+
+                            newPriceCostWithTax = item.Price;
+                            newPriceCostWithTax = _getHelperLookup.RoundUpToNearestCent(newPriceCostWithTax);
+                            Total += newPriceCostWithTax;
+                            var costPriceInCurrency = _getHelperLookup.ConvertToCurrency(newPriceCostWithTax);
+
+                            item.ItemName = item.ItemName = $"{item.ItemName}: {costPriceInCurrency}";
+                            responseItem.Items.Add(new ResponseItem
+                            {
+                                Name = item.ItemName,
+                                Price = _getHelperLookup.ConvertToCurrency(newPriceCostWithTax),
+                            });
+
+                        }
                     }
-                }
 
-                extraMargin = _getHelperLook.GetCostWithExtraMargin(totalCost_With_Margin);
-                Total += extraMargin;
-                Total = _getHelperLook.RoundUpToNearestEvenCent(Total);
-                responseItem.Total = Total;
-                responseItem.Total = _getHelperLook.RoundUpToNearestEvenCent(responseItem.Total);
-
-            }
-            else
-            {
-                foreach (var item in jobItemCreateRequest.Items)
-                {
-                    if (item.IsExempt)
-                    {
-                        item.Price = _getHelperLook.RoundUpToNearestCent(item.Price);
-
-
-                        newPriceCostWithTax = item.Price;
-                        newPriceCostWithTax = _getHelperLook.RoundUpToNearestCent(newPriceCostWithTax);
-                        Total += newPriceCostWithTax;
-                        
-                       
-                        item.ItemName =  $"{item.ItemName}: ${newPriceCostWithTax}";
-                        item.Price = newPriceCostWithTax;
-                        responseItem.Items.Add(new ResponseItem
-                        {
-                            Name = item.ItemName,
-                            Price = newPriceCostWithTax,
-                        });
-
-                        Total = _getHelperLook.RoundUpToNearestEvenCent(Total);
-                       
-                    }
-                    else
-                    {
-                        item.Price = _getHelperLook.RoundUpToNearestCent(item.Price);
-                        totalCost_With_Margin += item.Price;
-                        totalCost_With_Margin = _getHelperLook.RoundUpToNearestCent(totalCost_With_Margin);
-                        tax = _getHelperLook.GetCostWithTax(item.Price);
-                        newPriceCostWithTax = item.Price + tax;
-                        newPriceCostWithTax = _getHelperLook.RoundUpToNearestCent(newPriceCostWithTax);
-                        Total += item.Price + tax;
-                        
-                        item.ItemName = $"{item.ItemName}: ${newPriceCostWithTax}";
-                        item.Price = newPriceCostWithTax;
-                        responseItem.Items.Add(new ResponseItem
-                        {
-                            Name = item.ItemName,
-                            Price = newPriceCostWithTax,
-                        });
-
-                        margin = _getHelperLook.GetCostWithMargin(totalCost_With_Margin);
-                        Total += margin;
-                        Total = _getHelperLook.RoundUpToNearestEvenCent(Total);
-
-                    }
-                        responseItem.Total  = Total;
-                    responseItem.Total = _getHelperLook.RoundUpToNearestEvenCent(responseItem.Total);
+                    extraMargin = _getHelperLookup.GetCostWithExtraMargin(totalCost_With_Margin);
+                    Total += extraMargin;
+                    Total = _getHelperLookup.RoundUpToNearestEvenCent(Total);
+                    responseItem.Total = _getHelperLookup.ConvertToCurrency(Total);
 
 
                 }
+                else
+                {
+                    foreach (var item in jobItemCreateRequest.Items)
+                    {
+                        if (item.IsExempt)
+                        {
+                            item.Price = _getHelperLookup.RoundUpToNearestCent(item.Price);
 
 
+                            newPriceCostWithTax = item.Price;
+                            newPriceCostWithTax = _getHelperLookup.RoundUpToNearestCent(newPriceCostWithTax);
+                            Total += newPriceCostWithTax;
+                            var costPriceInCurrency = _getHelperLookup.ConvertToCurrency(newPriceCostWithTax);
+
+                            item.ItemName = item.ItemName = $"{item.ItemName}: {costPriceInCurrency}";
+                            item.Price = newPriceCostWithTax;
+                            responseItem.Items.Add(new ResponseItem
+                            {
+                                Name = item.ItemName,
+                                Price = _getHelperLookup.ConvertToCurrency(newPriceCostWithTax),
+                            });
+
+                            Total = _getHelperLookup.RoundUpToNearestEvenCent(Total);
+
+                        }
+                        else
+                        {
+                            item.Price = _getHelperLookup.RoundUpToNearestCent(item.Price);
+                            totalCost_With_Margin += item.Price;
+                            totalCost_With_Margin = _getHelperLookup.RoundUpToNearestCent(totalCost_With_Margin);
+                            tax = _getHelperLookup.GetCostWithTax(item.Price);
+                            newPriceCostWithTax = item.Price + tax;
+                            newPriceCostWithTax = _getHelperLookup.RoundUpToNearestCent(newPriceCostWithTax);
+                            Total += item.Price + tax;
+                            var costPriceInCurrency = _getHelperLookup.ConvertToCurrency(newPriceCostWithTax);
+
+                            item.ItemName = item.ItemName = $"{item.ItemName}: {costPriceInCurrency}";
+                            item.Price = newPriceCostWithTax;
+                            responseItem.Items.Add(new ResponseItem
+                            {
+                                Name = item.ItemName,
+                                Price = _getHelperLookup.ConvertToCurrency(newPriceCostWithTax),
+                            });
+
+                            margin = _getHelperLookup.GetCostWithMargin(totalCost_With_Margin);
+                            Total += margin;
+                            Total = _getHelperLookup.RoundUpToNearestEvenCent(Total);
+
+                        }
+                        responseItem.Total = _getHelperLookup.ConvertToCurrency(Total);
+
+
+
+                    }
+
+
+                }
+
+                return responseItem;
+               
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
 
-            return responseItem;
+           
             
         }
     }

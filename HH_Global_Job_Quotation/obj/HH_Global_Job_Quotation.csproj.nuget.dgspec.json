@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bidex\\source\\repos\\HH_Global_Task\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation.csproj": {}
+    "C:\\Users\\Bidex\\source\\repos\\HH_Global_Task\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation\\hh_global_job_quotation.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bidex\\source\\repos\\HH_Global_Task\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation.csproj": {
+    "C:\\Users\\Bidex\\source\\repos\\HH_Global_Task\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation\\hh_global_job_quotation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bidex\\source\\repos\\HH_Global_Task\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation.csproj",
-        "projectName": "HH_Global_Job_Quotation",
-        "projectPath": "C:\\Users\\Bidex\\source\\repos\\HH_Global_Task\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation.csproj",
+        "projectUniqueName": "C:\\Users\\Bidex\\source\\repos\\HH_Global_Task\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation\\hh_global_job_quotation.csproj",
+        "projectName": "hh_global_job_quotation",
+        "projectPath": "C:\\Users\\Bidex\\source\\repos\\HH_Global_Task\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation\\hh_global_job_quotation.csproj",
         "packagesPath": "C:\\Users\\Bidex\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Bidex\\source\\repos\\HH_Global_Task\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation\\obj\\",
         "projectStyle": "PackageReference",
@@ -22,15 +22,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -41,12 +41,16 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "FluentValidation.DependencyInjectionExtensions": {
               "target": "Package",
               "version": "[11.0.0, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.11.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

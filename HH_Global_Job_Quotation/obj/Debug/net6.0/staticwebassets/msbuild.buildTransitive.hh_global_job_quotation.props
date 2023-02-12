@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\hh_global_job_quotation.props" />
+</Project>
