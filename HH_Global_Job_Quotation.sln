@@ -3,10 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hh_global_job_quotation", "HH_Global_Job_Quotation\hh_global_job_quotation.csproj", "{3C877198-1584-425F-8332-FCAD8AF95CD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hh_global_job_quotation", "hh_global_job_quotation\hh_global_job_quotation.csproj", "{3C877198-1584-425F-8332-FCAD8AF95CD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HH_Global_Job.UnitTest", "HH_Global_Job.UnitTest\HH_Global_Job.UnitTest.csproj", "{258AEA42-2FCF-46F2-A4E8-C3D366E73B4D}"
-EndProject
+
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

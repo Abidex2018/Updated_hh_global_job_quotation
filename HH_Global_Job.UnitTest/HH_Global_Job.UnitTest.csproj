@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HH_Global_Job_Quotation\hh_global_job_quotation.csproj" />
+    <ProjectReference Include="..\hh_global_job_quotation\hh_global_job_quotation.csproj" />
   </ItemGroup>
 
 </Project>

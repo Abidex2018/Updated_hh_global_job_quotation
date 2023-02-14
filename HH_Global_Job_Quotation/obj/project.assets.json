@@ -412,11 +412,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bidex\\source\\repos\\HH_Global_Task\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation\\hh_global_job_quotation.csproj",
+      "projectUniqueName": "C:\\Users\\Bidex\\source\\repos\\HH_Global_Task\\HH_Global_Job_Quotation\\hh_global_job_quotation\\hh_global_job_quotation.csproj",
       "projectName": "hh_global_job_quotation",
-      "projectPath": "C:\\Users\\Bidex\\source\\repos\\HH_Global_Task\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation\\hh_global_job_quotation.csproj",
+      "projectPath": "C:\\Users\\Bidex\\source\\repos\\HH_Global_Task\\HH_Global_Job_Quotation\\hh_global_job_quotation\\hh_global_job_quotation.csproj",
       "packagesPath": "C:\\Users\\Bidex\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bidex\\source\\repos\\HH_Global_Task\\HH_Global_Job_Quotation\\HH_Global_Job_Quotation\\obj\\",
+      "outputPath": "C:\\Users\\Bidex\\source\\repos\\HH_Global_Task\\HH_Global_Job_Quotation\\hh_global_job_quotation\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
